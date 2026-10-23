@@ -80,6 +80,12 @@ title: "Página Inicial"
           </div>
         </div>
       </article>
+    {% else %}
+      <div style="text-align: center; padding: 25px 10px; border: 2px dashed #ff00ff; background: #0a0a0a; margin-top: 15px;">
+        <p style="font-size: 20px; color: #ffff00; margin: 0 0 10px 0;">📂 Nenhuma postagem encontrada no acervo no momento!</p>
+        <p style="color: #00ffff; margin: 0 0 15px 0;">Acesse a área administrativa para criar e publicar sua primeira resenha de música.</p>
+        <a href="{{ '/admin/' | url }}" class="read-more-btn" target="_blank">🔐 ACESSAR PAINEL ADMIN &raquo;</a>
+      </div>
     {% endfor %}
 
   </div>

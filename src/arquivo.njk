@@ -53,6 +53,12 @@ title: "Arquivo de Postagens"
           </div>
         </td>
       </tr>
+      {% else %}
+      <tr>
+        <td colspan="3" style="text-align: center; color: #ff9900; padding: 20px;">
+          Nenhum artigo arquivado ainda. Acesse o painel de administração para publicar sua primeira postagem!
+        </td>
+      </tr>
       {% endfor %}
     </tbody>
   </table>

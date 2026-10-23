@@ -1,6 +1,5 @@
 # Dependências Node.js
 node_modules/
-package-lock.json
 
 # Diretório de build do Eleventy
 _site/

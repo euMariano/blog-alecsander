@@ -26,7 +26,6 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: 'npm'
 
       - name: 📦 Instalar dependências
         run: npm install
@@ -34,12 +33,12 @@ jobs:
       - name: 🏗️ Compilar site com Eleventy
         run: npm run build
 
-      - name: 🚀 Publicar na branch gh-pages
+      - name: 🚀 Publicar na branch gh-pages (Deploy via branch)
         uses: peaceiris/actions-gh-pages@v3
+        continue-on-error: true
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./_site
-          cname: '' # Opcional: configure seu domínio customizado se tiver
 
       - name: 📤 Upload artefato oficial do GitHub Pages
         uses: actions/upload-pages-artifact@v3

@@ -31,7 +31,7 @@
   <!-- MARQUEE TICKER RETRÔ -->
   <div class="retro-marquee-bar">
     <marquee behavior="scroll" direction="left" scrollamount="5">
-      🔥 BEM-VINDO AO MEU CAFOFO MUSICAL! 🔥 &bull; NOVO REVIEW NO AR: BLACK SABBATH, DAFT PUNK & CHIPTUNE! &bull; CLIQUE EM "INICIAR WINAMP" NA BARRA LATERAL PARA OUVIR NOSSA TRILHA 8-BIT EXCLUSIVA! &bull; ESTE SITE É 100% ESTÁTICO E HOSPEDADO NO GITHUB PAGES! &bull; NÃO ESQUEÇA DE ASSINAR O LIVRO DE VISITAS! 🔥
+      🔥 BEM-VINDO AO MEU CAFOFO MUSICAL! 🔥 &bull; REVIEWS DE ROCK, HEAVY METAL, SYNTHWAVE & RARIDADES RETRÔ! &bull; ESTE SITE É 100% ESTÁTICO E HOSPEDADO NO GITHUB PAGES COM SVELTIA CMS! &bull; NÃO ESQUEÇA DE ASSINAR O LIVRO DE VISITAS! 🔥
     </marquee>
   </div>
 
@@ -62,16 +62,6 @@
         </div>
       </div>
 
-      <!-- Player Winamp 2.91 -->
-      <div class="sidebar-box winamp-launch-box">
-        <div class="sidebar-box-title">⚡ WINAMP 2.91 WEBAMP</div>
-        <img src="{{ '/assets/img/badges/winamp.gif' | url }}" alt="Winamp" style="margin: 4px auto; display:block;" />
-        <div style="font-size: 15px; color: #ffff00;">"It really whips the llama's ass!"</div>
-        <button id="winamp-toggle-btn" class="winamp-btn" type="button">
-          ▶ INICIAR WINAMP PLAYER
-        </button>
-        <div class="winamp-now-playing">Trilhas: Alecsander Rock Theme & Winamp Llama Intro</div>
-      </div>
 
       <!-- Navegação Principal -->
       <div class="sidebar-box">
@@ -164,71 +154,6 @@
   </footer>
 
 </div>
-
-<!-- WEBAMP AUDIO PLAYER (WINAMP 2 HTML5 SCRIPT) -->
-<script src="https://unpkg.com/webamp@1.5.0/built/webamp.bundle.min.js"></script>
-<script>
-  let webamp = null;
-
-  function runWinamp(autoPlay = false) {
-    if (webamp) {
-      return;
-    }
-    if (typeof Webamp === 'undefined') {
-      alert('Carregando Webamp... Por favor, clique novamente em alguns segundos.');
-      return;
-    }
-
-    const btn = document.getElementById('winamp-toggle-btn');
-    if (btn) {
-      btn.innerHTML = '⏳ CARREGANDO WINAMP...';
-    }
-
-    webamp = new Webamp({
-      initialTracks: [
-        {
-          metaData: {
-            artist: "Alecsander Vitor",
-            title: "Retro Rock Anthem (Chiptune 8-Bit)"
-          },
-          url: "{{ '/assets/audio/retro-rock-anthem.mp3' | url }}",
-          duration: 27.4
-        },
-        {
-          metaData: {
-            artist: "Nullsoft / DJ Mike Llama",
-            title: "Winamp Intro (It Really Whips!)"
-          },
-          url: "{{ '/assets/audio/winamp-intro.mp3' | url }}",
-          duration: 5.3
-        }
-      ]
-    });
-
-    webamp.renderWhenReady(document.body).then(() => {
-      if (btn) {
-        btn.innerHTML = '⚡ WINAMP 2.91 ATIVO!';
-        btn.style.background = '#00ff00';
-        btn.style.color = '#000000';
-      }
-      if (autoPlay) {
-        webamp.play();
-      }
-    }).catch(err => {
-      console.error('Erro ao renderizar Webamp:', err);
-      if (btn) btn.innerHTML = '▶ REINICIAR WINAMP';
-    });
-  }
-
-  document.addEventListener('DOMContentLoaded', function () {
-    const btn = document.getElementById('winamp-toggle-btn');
-    if (btn) {
-      btn.addEventListener('click', function () {
-        runWinamp(true);
-      });
-    }
-  });
-</script>
 
 </body>
 </html>
