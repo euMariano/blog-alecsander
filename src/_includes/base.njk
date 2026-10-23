@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{ title }} | Alecsander Vitor's Music Cave</title>
+  <meta name="description" content="O cafofo musical retrô de Alecsander Vitor na Old Web. Reviews de Rock, Metal, Synthwave e nostalgia anos 90/2000." />
+  
+  <!-- Favicon retrô -->
+  <link rel="icon" href="{{ '/assets/img/badges/winamp.gif' | url }}" type="image/gif" />
+  
+  <!-- CSS Retrô Geocities / Windows 95 -->
+  <link rel="stylesheet" href="{{ '/assets/css/retro-style.css' | url }}" />
+</head>
+<body>
+
+<div class="site-wrapper">
+
+  <!-- CABEÇALHO DO BLOG (ANOS 90 / GEOCITIES) -->
+  <header class="site-header">
+    <div class="header-glitch-title">
+      <img src="{{ '/assets/img/gifs/skull.gif' | url }}" alt="Skull" class="header-gif" width="39" height="43" />
+      <div>
+        <h1 class="header-title-text">🎸 ALECSANDER VITOR'S MUSIC CAVE 🎸</h1>
+        <div class="header-subtitle">~* O Refúgio Definitivo do Rock, Metal & Trilha Sonora Retrô *~</div>
+      </div>
+      <img src="{{ '/assets/img/gifs/spinning-cd.gif' | url }}" alt="CD Girando" class="header-gif" width="45" height="52" />
+    </div>
+  </header>
+
+  <!-- MARQUEE TICKER RETRÔ -->
+  <div class="retro-marquee-bar">
+    <marquee behavior="scroll" direction="left" scrollamount="5">
+      🔥 BEM-VINDO AO MEU CAFOFO MUSICAL! 🔥 &bull; NOVO REVIEW NO AR: BLACK SABBATH, DAFT PUNK & CHIPTUNE! &bull; CLIQUE EM "INICIAR WINAMP" NA BARRA LATERAL PARA OUVIR NOSSA TRILHA 8-BIT EXCLUSIVA! &bull; ESTE SITE É 100% ESTÁTICO E HOSPEDADO NO GITHUB PAGES! &bull; NÃO ESQUEÇA DE ASSINAR O LIVRO DE VISITAS! 🔥
+    </marquee>
+  </div>
+
+  <!-- LAYOUT PRINCIPAL (SIMULANDO FRAMESET DA OLD WEB) -->
+  <div class="main-layout">
+    
+    <!-- BARRA LATERAL ESQUERDA (SIDEBAR) -->
+    <aside class="site-sidebar">
+      
+      <!-- Box do Autor -->
+      <div class="win95-window">
+        <div class="win95-titlebar">
+          <div class="win95-titlebar-title">
+            <img src="{{ '/assets/img/badges/archivorock.gif' | url }}" alt="" />
+            <span>ALECSANDER.EXE</span>
+          </div>
+          <div class="win95-titlebar-buttons">
+            <button class="win95-btn">_</button>
+            <button class="win95-btn">&#9633;</button>
+            <button class="win95-btn">&times;</button>
+          </div>
+        </div>
+        <div class="win95-body profile-card">
+          <img src="{{ '/assets/img/gifs/flame.gif' | url }}" alt="Alecsander Vitor" class="profile-avatar" style="background:#000; padding:4px;" />
+          <div class="profile-name">ALECSANDER VITOR</div>
+          <div class="profile-status">STATUS: Ouvindo Vinil & Explorando a Teia Mundial 🌐</div>
+          <p style="font-size:16px; margin: 8px 0;">Colecionador de riffs pesados, apreciador de fitas K7 e arquivista da boa música.</p>
+        </div>
+      </div>
+
+      <!-- Player Winamp 2.91 -->
+      <div class="sidebar-box winamp-launch-box">
+        <div class="sidebar-box-title">⚡ WINAMP 2.91 WEBAMP</div>
+        <img src="{{ '/assets/img/badges/winamp.gif' | url }}" alt="Winamp" style="margin: 4px auto; display:block;" />
+        <div style="font-size: 15px; color: #ffff00;">"It really whips the llama's ass!"</div>
+        <button id="winamp-toggle-btn" class="winamp-btn" type="button">
+          ▶ INICIAR WINAMP PLAYER
+        </button>
+        <div class="winamp-now-playing">Trilhas: Alecsander Rock Theme & Winamp Llama Intro</div>
+      </div>
+
+      <!-- Navegação Principal -->
+      <div class="sidebar-box">
+        <div class="sidebar-box-title">📂 ÍNDICE DO SITE</div>
+        <ul class="nav-menu">
+          <li><a href="{{ '/' | url }}" class="nav-link {% if page.url == '/' %}active{% endif %}">🏠 Início / Últimos Posts</a></li>
+          <li><a href="{{ '/arquivo/' | url }}" class="nav-link {% if page.url == '/arquivo/' %}active{% endif %}">📚 Arquivo Completo</a></li>
+          <li><a href="{{ '/sobre/' | url }}" class="nav-link {% if page.url == '/sobre/' %}active{% endif %}">🤘 Sobre o Autor</a></li>
+          <li><a href="{{ '/admin/' | url }}" class="nav-link" target="_blank" style="color: #ff00ff; border-color: #ff00ff;">🔐 Painel Admin (Sveltia CMS)</a></li>
+        </ul>
+      </div>
+
+      <!-- Neocities Rock Webring -->
+      <div class="sidebar-box webring-box">
+        <div class="sidebar-box-title">🕸️ NEOCITIES WEBRING</div>
+        <p style="margin: 4px 0;">Membro Oficial do <strong>Rock & Metal Underground Ring</strong></p>
+        <div class="webring-controls">
+          <a href="#prev" onclick="alert('Navegando no anel retrô...'); return false;">&lt;&lt; Anterior</a>
+          <a href="#hub" onclick="alert('Neocities Webring Hub!'); return false;">[ Lista ]</a>
+          <a href="#next" onclick="alert('Navegando no anel retrô...'); return false;">Próximo &gt;&gt;</a>
+        </div>
+      </div>
+
+      <!-- Contador de Visitas Estilo Odômetro -->
+      <div class="sidebar-box hit-counter-box">
+        <div class="sidebar-box-title">📟 CONTADOR DE ACESSOS</div>
+        <div style="font-size: 15px; color: #aaaaaa; margin-top: 4px;">Você é o visitante nº:</div>
+        <div class="odometer-digits">004829</div>
+        <div style="margin-top: 6px;">
+          <!-- Hit Counter Online API Fallback -->
+          <img src="https://count.getloli.com/get/@alecsander-cave?theme=rule34" alt="Hit Counter" style="max-width: 100%; height: 28px; display: block; margin: 4px auto;" onerror="this.style.display='none'" />
+        </div>
+      </div>
+
+      <!-- Mural de Botões 88x31 -->
+      <div class="sidebar-box">
+        <div class="sidebar-box-title">🎖️ BOTÕES & BANNERS 88x31</div>
+        <div class="button-wall">
+          <img src="{{ '/assets/img/badges/winamp.gif' | url }}" alt="Winamp" title="Winamp Compatible" />
+          <img src="{{ '/assets/img/badges/netscape_now_4_0.gif' | url }}" alt="Netscape Now 4.0" title="Netscape Now 4.0" />
+          <img src="{{ '/assets/img/badges/neocities.gif' | url }}" alt="Neocities" title="Hosted on Neocities Aesthetic" />
+          <img src="{{ '/assets/img/badges/geocities.gif' | url }}" alt="Geocities" title="Geocities Classic" />
+          <img src="{{ '/assets/img/badges/ie5.gif' | url }}" alt="Internet Explorer 5.0" title="IE 5.0 Ready" />
+          <img src="{{ '/assets/img/badges/built_with_microsoft_notepad.gif' | url }}" alt="Built with Notepad" title="Built with Notepad" />
+          <img src="{{ '/assets/img/badges/valid-html401.gif' | url }}" alt="Valid HTML 4.01" title="Valid HTML 4.01" />
+          <img src="{{ '/assets/img/badges/valid-css.gif' | url }}" alt="Valid CSS" title="Valid CSS" />
+          <img src="{{ '/assets/img/badges/archivorock.gif' | url }}" alt="Archivo Rock" title="Archivo Rock" />
+          <img src="{{ '/assets/img/badges/boombarmusic.gif' | url }}" alt="Boom Bar Music" title="Boom Bar Music" />
+          <img src="{{ '/assets/img/badges/music.gif' | url }}" alt="Music" title="Music Badge" />
+          <img src="{{ '/assets/img/badges/bestviewed.gif' | url }}" alt="Best Viewed" title="Best Viewed with Any Browser" />
+        </div>
+      </div>
+
+    </aside>
+
+    <!-- ÁREA DE CONTEÚDO PRINCIPAL -->
+    <main class="content-area">
+      {{ content | safe }}
+    </main>
+
+  </div>
+
+  <!-- LINHA DE FOGO DIVISÓRIA -->
+  <img src="{{ '/assets/img/dividers/fire-line.gif' | url }}" alt="Fogo" class="retro-divider" style="width: 100%; height: auto;" />
+
+  <!-- RODAPÉ RETRÔ -->
+  <footer class="site-footer">
+    
+    <div class="footer-construction">
+      <img src="{{ '/assets/img/gifs/under-construction.gif' | url }}" alt="Em Construção" width="300" height="80" />
+      <div>⚠️ AVISO: ESTE SITE ESTÁ EM ETERNA CONSTRUÇÃO DESDE 1999! ⚠️</div>
+    </div>
+
+    <div class="footer-badges">
+      <img src="{{ '/assets/img/badges/viewguestbook.gif' | url }}" alt="Livro de Visitas" style="cursor:pointer;" onclick="alert('Obrigado pela visita! Assinatura registrada com sucesso no log de visitantes.');" />
+      <img src="{{ '/assets/img/badges/construction.gif' | url }}" alt="Construction Badge" />
+      <img src="{{ '/assets/img/badges/netscape.gif' | url }}" alt="Netscape" />
+    </div>
+
+    <p style="margin: 8px 0;">
+      &copy; 1999-2026 <strong>Alecsander Vitor</strong> &bull; Todos os direitos reservados para o bom e velho Rock 'n' Roll.
+      <br />
+      Construído com <a href="https://www.11ty.dev/" target="_blank">Eleventy (11ty)</a> &bull; Gerenciado com <a href="https://github.com/sveltia/sveltia-cms" target="_blank">Sveltia CMS</a> &bull; Hospedado no <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>
+    </p>
+
+    <div class="footer-warning">
+      ⚡ MELHOR VISUALIZADO EM RESOLUÇÃO 800x600 COM NETSCAPE NAVIGATOR 4.0 OU INTERNET EXPLORER 5.0 COM MAIS DE 256 CORES ⚡
+    </div>
+
+  </footer>
+
+</div>
+
+<!-- WEBAMP AUDIO PLAYER (WINAMP 2 HTML5 SCRIPT) -->
+<script src="https://unpkg.com/webamp@1.5.0/built/webamp.bundle.min.js"></script>
+<script>
+  let webamp = null;
+
+  function runWinamp(autoPlay = false) {
+    if (webamp) {
+      return;
+    }
+    if (typeof Webamp === 'undefined') {
+      alert('Carregando Webamp... Por favor, clique novamente em alguns segundos.');
+      return;
+    }
+
+    const btn = document.getElementById('winamp-toggle-btn');
+    if (btn) {
+      btn.innerHTML = '⏳ CARREGANDO WINAMP...';
+    }
+
+    webamp = new Webamp({
+      initialTracks: [
+        {
+          metaData: {
+            artist: "Alecsander Vitor",
+            title: "Retro Rock Anthem (Chiptune 8-Bit)"
+          },
+          url: "{{ '/assets/audio/retro-rock-anthem.mp3' | url }}",
+          duration: 27.4
+        },
+        {
+          metaData: {
+            artist: "Nullsoft / DJ Mike Llama",
+            title: "Winamp Intro (It Really Whips!)"
+          },
+          url: "{{ '/assets/audio/winamp-intro.mp3' | url }}",
+          duration: 5.3
+        }
+      ]
+    });
+
+    webamp.renderWhenReady(document.body).then(() => {
+      if (btn) {
+        btn.innerHTML = '⚡ WINAMP 2.91 ATIVO!';
+        btn.style.background = '#00ff00';
+        btn.style.color = '#000000';
+      }
+      if (autoPlay) {
+        webamp.play();
+      }
+    }).catch(err => {
+      console.error('Erro ao renderizar Webamp:', err);
+      if (btn) btn.innerHTML = '▶ REINICIAR WINAMP';
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    const btn = document.getElementById('winamp-toggle-btn');
+    if (btn) {
+      btn.addEventListener('click', function () {
+        runWinamp(true);
+      });
+    }
+  });
+</script>
+
+</body>
+</html>

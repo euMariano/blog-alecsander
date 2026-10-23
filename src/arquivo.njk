@@ -1,0 +1,63 @@
+---
+layout: base.njk
+title: "Arquivo de Postagens"
+---
+
+<div class="content-box">
+  <div class="win95-titlebar" style="margin: -15px -20px 15px -20px;">
+    <div class="win95-titlebar-title">
+      <img src="{{ '/assets/img/badges/archivorock.gif' | url }}" alt="" />
+      <span>EXPLORER_ARQUIVOS - [TODAS AS POSTAGENS]</span>
+    </div>
+    <div class="win95-titlebar-buttons">
+      <button class="win95-btn">_</button>
+      <button class="win95-btn">&#9633;</button>
+      <button class="win95-btn">&times;</button>
+    </div>
+  </div>
+
+  <h2 style="color: #ffff00; margin-top: 0;">📚 ÍNDICE CRONOLÓGICO DO ACERVO</h2>
+  <p style="color: #cccccc;">
+    Aqui estão listadas todas as resenhas, análises de álbuns e artigos publicados no blog de Alecsander Vitor em ordem cronológica reversa:
+  </p>
+
+  <img src="{{ '/assets/img/dividers/rainbow-line.gif' | url }}" alt="Divider" class="retro-divider" />
+
+  <table class="single-post-meta-table" style="width: 100%; max-width: 100%;">
+    <thead>
+      <tr style="background: #000080; color: #ffff00;">
+        <th style="width: 25%;">DATA</th>
+        <th style="width: 45%;">TÍTULO DA POSTAGEM</th>
+        <th style="width: 30%;">ARTISTA / GÊNERO</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for post in collections.posts %}
+      <tr>
+        <td><code>{{ post.data.date | shortDate }}</code></td>
+        <td>
+          <a href="{{ post.url | url }}" style="font-weight: bold; color: #ffff33;">
+            {{ post.data.title }}
+          </a>
+        </td>
+        <td>
+          {% if post.data.artist %}
+            <span style="color: #00ffff;">{{ post.data.artist }}</span>
+          {% endif %}
+          <div style="margin-top: 4px;">
+            {% for tag in post.data.tags %}
+              {% if tag != "posts" %}
+                <span class="post-tag">{{ tag }}</span>
+              {% endif %}
+            {% endfor %}
+          </div>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <div style="margin-top: 25px; text-align: center;">
+    <a href="{{ '/' | url }}" class="read-more-btn">&larr; VOLTAR À PÁGINA INICIAL</a>
+  </div>
+</div>

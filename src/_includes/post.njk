@@ -1,0 +1,73 @@
+---
+layout: base.njk
+---
+
+<article class="single-post-view">
+  
+  <!-- BARRA DE TÍTULO ESTILO WINDOWS 95 -->
+  <div class="win95-titlebar" style="margin: -20px -20px 20px -20px;">
+    <div class="win95-titlebar-title">
+      <img src="{{ '/assets/img/gifs/spinning-cd.gif' | url }}" alt="" />
+      <span>WIN95_MEDIA_PLAYER - [{{ title }}]</span>
+    </div>
+    <div class="win95-titlebar-buttons">
+      <button class="win95-btn" onclick="history.back()">_</button>
+      <button class="win95-btn">&#9633;</button>
+      <button class="win95-btn" onclick="window.location.href='{{ '/' | url }}'">&times;</button>
+    </div>
+  </div>
+
+  <header class="single-post-header">
+    <h1 class="single-post-title">{{ title }}</h1>
+    
+    <table class="single-post-meta-table">
+      {% if artist %}
+      <tr>
+        <th>ARTISTA / BANDA:</th>
+        <td><strong style="color: #00ffff;">{{ artist }}</strong></td>
+      </tr>
+      {% endif %}
+      <tr>
+        <th>DATA DE PUBLICAÇÃO:</th>
+        <td><time datetime="{{ date | htmlDateString }}">{{ date | readableDate }}</time></td>
+      </tr>
+      <tr>
+        <th>AUTOR DO REVIEW:</th>
+        <td>Alecsander Vitor</td>
+      </tr>
+      {% if tags and tags.length > 0 %}
+      <tr>
+        <th>GÊNERO / TAGS:</th>
+        <td>
+          {% for tag in tags %}
+            {% if tag != "posts" %}
+              <span class="post-tag">{{ tag }}</span>
+            {% endif %}
+          {% endfor %}
+        </td>
+      </tr>
+      {% endif %}
+    </table>
+
+    {% if thumbnail %}
+    <div class="single-post-cover-wrapper">
+      <img src="{{ thumbnail | url }}" alt="Capa de {{ title }}" class="single-post-cover" />
+    </div>
+    {% endif %}
+
+    <!-- DIVISOR ARCO-ÍRIS -->
+    <img src="{{ '/assets/img/dividers/rainbow-line.gif' | url }}" alt="Divider" class="retro-divider" />
+  </header>
+
+  <!-- CORPO DO REVIEW (MARKDOWN RENDERIZADO) -->
+  <div class="single-post-body">
+    {{ content | safe }}
+  </div>
+
+  <!-- NAVEGAÇÃO DE RETORNO -->
+  <div class="post-navigation">
+    <a href="{{ '/' | url }}" class="read-more-btn">&larr; VOLTAR À PÁGINA INICIAL</a>
+    <a href="{{ '/arquivo/' | url }}" class="read-more-btn">VER TODOS OS REVIEWS &rarr;</a>
+  </div>
+
+</article>

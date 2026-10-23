@@ -1,0 +1,29 @@
+backend:
+  name: github
+  repo: alecsandervitor/blog-alecsander # ATENÇÃO: Substitua pelo seu usuário/repositório no GitHub se for diferente!
+  branch: main
+
+# Armazenamento e visualização das imagens enviadas pelo CMS
+media_folder: "src/assets/img/uploads"
+public_folder: "/assets/img/uploads"
+
+# Idioma da interface do CMS
+locale: "pt"
+
+# Exibição
+display_url: "/"
+logo_url: "/assets/img/badges/winamp.gif"
+
+collections:
+  - name: "blog"
+    label: "Postagens de Música"
+    folder: "src/posts"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "Título", name: "title", widget: "string"}
+      - {label: "Data da Publicação", name: "date", widget: "datetime"}
+      - {label: "Banda/Artista em Destaque", name: "artist", widget: "string", required: false}
+      - {label: "Capa do Álbum/Post", name: "thumbnail", widget: "image", required: false}
+      - {label: "Gênero / Tags", name: "tags", widget: "list"}
+      - {label: "Review / Conteúdo", name: "body", widget: "markdown"}

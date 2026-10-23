@@ -1,0 +1,86 @@
+---
+layout: base.njk
+title: "Página Inicial"
+---
+
+<!-- BOAS-VINDAS ESTILO JANELA WINDOWS 95 -->
+<section class="win95-window">
+  <div class="win95-titlebar">
+    <div class="win95-titlebar-title">
+      <img src="{{ '/assets/img/badges/music.gif' | url }}" alt="" />
+      <span>WELCOME_MESSAGE.TXT - BLOCO DE NOTAS</span>
+    </div>
+    <div class="win95-titlebar-buttons">
+      <button class="win95-btn">_</button>
+      <button class="win95-btn">&#9633;</button>
+      <button class="win95-btn">&times;</button>
+    </div>
+  </div>
+  <div class="win95-body" style="font-family: var(--font-retro); font-size: 19px;">
+    <p style="margin-top:0;">
+      <strong>Saudações, viajante da Internet antiga! 🤘</strong><br />
+      Você acabou de sintonizar na <em>Alecsander Vitor's Music Cave</em>. Este espaço foi construído nos moldes sagrados do Geocities e Neocities para escapar da internet moderna pasteurizada.
+    </p>
+    <p>
+      Aqui falamos de <strong>Rock Clássico, Heavy Metal, Chiptune, Synthwave e raridades sonoras</strong>. Sem algoritmos, sem anúncios pop-up chatos, apenas boa música, HTML raiz e muita paixão!
+    </p>
+  </div>
+</section>
+
+<!-- DIVISOR ARCO-ÍRIS RETRÔ -->
+<img src="{{ '/assets/img/dividers/rainbow-line.gif' | url }}" alt="Divider" class="retro-divider" />
+
+<!-- SEÇÃO DE REVIEWS RECENTES -->
+<section>
+  <div class="content-box">
+    <h2 style="margin-top:0; color:#ffff00; font-size:1.15rem; display:flex; align-items:center; gap:8px;">
+      <img src="{{ '/assets/img/gifs/spinning-cd.gif' | url }}" alt="" width="28" height="32" />
+      ÚLTIMAS POSTAGENS & REVIEWS MUSICAIS
+    </h2>
+    <p style="color:#00ff99; font-size:16px; margin-bottom:15px;">
+      Abaixo você confere as análises mais recentes publicadas diretamente do nosso acervo:
+    </p>
+
+    {% for post in collections.posts %}
+      <article class="post-card">
+        <header class="post-card-header">
+          <h3 class="post-card-title">
+            <a href="{{ post.url | url }}">🎸 {{ post.data.title }}</a>
+          </h3>
+          <div class="post-card-meta">
+            <span>📅 {{ post.data.date | readableDate }}</span>
+            {% if post.data.artist %}
+              <span>🎤 Banda: <strong style="color: #00ffff;">{{ post.data.artist }}</strong></span>
+            {% endif %}
+          </div>
+        </header>
+
+        <div class="post-card-content">
+          {% if post.data.thumbnail %}
+            <a href="{{ post.url | url }}">
+              <img src="{{ post.data.thumbnail | url }}" alt="Capa" class="post-card-thumbnail" />
+            </a>
+          {% endif %}
+
+          <div class="post-card-excerpt">
+            <!-- Resumo do conteúdo -->
+            {{ post.templateContent | striptags | truncate(260) }}
+            
+            <div class="post-card-tags">
+              {% for tag in post.data.tags %}
+                {% if tag != "posts" %}
+                  <span class="post-tag">{{ tag }}</span>
+                {% endif %}
+              {% endfor %}
+            </div>
+
+            <div>
+              <a href="{{ post.url | url }}" class="read-more-btn">LER REVIEW COMPLETO &raquo;</a>
+            </div>
+          </div>
+        </div>
+      </article>
+    {% endfor %}
+
+  </div>
+</section>
